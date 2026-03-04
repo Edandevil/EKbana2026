@@ -2,7 +2,7 @@
     min-height: 100vh;
     display: flex;
     align-items: center;
-    padding: 56px 0 80px;
+    padding: 120px 0 80px;
     /* Top padding accounts for fixed navbar height */
     background: radial-gradient(circle at right top, rgba(230, 245, 235, 0.4) 0%, rgba(255, 255, 255, 0) 40%),
         radial-gradient(circle at left bottom, rgba(216, 237, 248, 0.4) 0%, rgba(255, 255, 255, 0) 40%);
@@ -51,7 +51,7 @@
 }
 
 .hero-title {
-    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
     line-height: 1.15;
     font-weight: 800;
     color: #111827;
