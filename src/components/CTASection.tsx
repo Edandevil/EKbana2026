@@ -13,7 +13,7 @@ const CTASection: React.FC = () => {
                         <span>Start Your AI Transformation</span>
                     </div>
 
-                    <h2 className="cta-title">
+                    <h2 className="cta-title section-title">
                         AI Is No Longer an Upgrade. It's a Business Requirement.
                     </h2>
 

@@ -48,9 +48,9 @@ const Services = () => {
             <div className="container">
 
                 <div className="services-header">
-                    <div className="services-header-left">
-                        <span className="services-subtitle">WHAT WE OFFER</span>
-                        <h2 className="services-title">Engineering the<br />Future with AI</h2>
+                    <div className="services-header-left section-header-center-mobile">
+                        <span className="services-subtitle section-subtitle">WHAT WE OFFER</span>
+                        <h2 className="services-title section-title">Engineering the<br />Future with AI</h2>
                     </div>
                     <div className="services-header-right">
                         <p className="services-description">

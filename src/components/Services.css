@@ -97,12 +97,19 @@
     .services-header {
         flex-direction: column;
         gap: 24px;
+    }
+
+    .services-header-left {
         text-align: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
     }
 
     .services-header-right {
         padding-top: 0;
         max-width: 100%;
+        text-align: center;
     }
 
     .services-grid {

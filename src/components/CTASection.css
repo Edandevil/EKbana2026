@@ -17,6 +17,24 @@
     align-items: center;
 }
 
+@media (max-width: 1366px) {
+    .cta-container {
+        padding: 0 5%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .cta-container {
+        padding: 0 6%;
+    }
+}
+
+@media (max-width: 768px) {
+    .cta-container {
+        padding: 0 32px;
+    }
+}
+
 /* Main Content Area */
 .cta-content {
     max-width: 800px;

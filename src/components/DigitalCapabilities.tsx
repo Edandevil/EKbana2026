@@ -37,7 +37,7 @@ const DigitalCapabilities = () => {
                     {/* Left Column (Text & CTA) */}
                     <div className="capabilities-left">
                         <span className="capabilities-subtitle">Digital Capabilities</span>
-                        <h2 className="capabilities-title">
+                        <h2 className="capabilities-title section-title">
                             Powered by AI at<br />
                             heart
                         </h2>

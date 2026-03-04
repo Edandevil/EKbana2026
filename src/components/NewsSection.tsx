@@ -8,6 +8,7 @@ interface NewsItem {
     date: string;
     title: string;
     colorClass: string;
+    image?: string;
 }
 
 const newsData: NewsItem[] = [
@@ -16,21 +17,24 @@ const newsData: NewsItem[] = [
         tag: 'EKBANA TEAM',
         date: 'DEC 11, 2025',
         title: "Introducing Rerank 4: EKbana's most powerful reranker yet",
-        colorClass: 'news-img-purple'
+        colorClass: 'news-img-purple',
+        image: '/rerank4.png'
     },
     {
         id: 2,
         tag: 'EKBANA TEAM',
         date: 'NOV 27, 2025',
         title: 'EKbana expands partnership with SAP to provide Europe sovereign AI solutions',
-        colorClass: 'news-img-orange'
+        colorClass: 'news-img-orange',
+        image: '/sap-partnership.png'
     },
     {
         id: 3,
         tag: 'EKBANA TEAM',
         date: 'OCT 07, 2025',
         title: 'Announcing the EKbana Partner Program: Boosting enterprise AI',
-        colorClass: 'news-img-dark'
+        colorClass: 'news-img-dark',
+        image: '/partner-program.png'
     }
 ];
 
@@ -50,7 +54,10 @@ const NewsSection: React.FC = () => {
                 <div className="news-grid">
                     {newsData.map((news) => (
                         <div key={news.id} className="news-card">
-                            <div className={`news-card-image ${news.colorClass}`}></div>
+                            {news.image
+                                ? <img src={news.image} alt={news.title} className="news-card-image news-card-img-actual" />
+                                : <div className={`news-card-image ${news.colorClass}`}></div>
+                            }
                             <div className="news-card-content">
                                 <div className="news-meta">
                                     {news.tag} - {news.date}

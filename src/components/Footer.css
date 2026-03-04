@@ -12,6 +12,24 @@
     padding: 0;
 }
 
+@media (max-width: 1366px) {
+    .footer-container {
+        padding: 0 5%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .footer-container {
+        padding: 0 6%;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        padding: 0 32px;
+    }
+}
+
 /* Typography base */
 .footer-col-title {
     font-size: 0.85rem;

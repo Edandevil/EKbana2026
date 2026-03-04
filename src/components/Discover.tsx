@@ -60,7 +60,7 @@ const Discover = () => {
     return (
         <section className="discover-section">
             <div className="container">
-                <h2 className="discover-main-title">
+                <h2 className="discover-main-title section-title">
                     Discover How AI Is Reshaping<br />
                     the Future of Industries
                 </h2>
