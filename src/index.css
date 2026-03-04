@@ -1,68 +1,265 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800&display=swap');
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  /* Primary Colors (Blue Palette) */
+  --primary-50: #d8edf8;
+  --primary-100: #b9dcf2;
+  --primary-200: #9bcbee;
+  --primary-300: #7ebce6;
+  --primary-400: #57a6db;
+  --primary-500: #268bd2;
+  --primary-600: #1b6fb0;
+  --primary-700: #14598d;
+  --primary-800: #0f446e;
+  --primary-900: #072944;
+  --primary: var(--primary-500);
+
+  /* Secondary Colors (Green Palette) */
+  --secondary-50: #e7f5e3;
+  --secondary-100: #d6ecd2;
+  --secondary-200: #c6e3c1;
+  --secondary-300: #aadd9d;
+  --secondary-400: #88c875;
+  --secondary-500: #76ba4a;
+  /* Original brand green */
+  --secondary-600: #599233;
+  --secondary-700: #427024;
+  --secondary-800: #2d4f15;
+  --secondary-900: #192d09;
+  --secondary: var(--secondary-500);
+
+  font-family: 'Nunito Sans', system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
+  color: #1a1a1a;
+  background-color: #ffffff;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
 }
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
   min-height: 100vh;
+  background-color: #ffffff;
+  color: #1a1a1a;
+  overflow-x: hidden;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+#root {
+  width: 100%;
 }
 
-button {
-  border-radius: 8px;
+* {
+  box-sizing: border-box;
+}
+
+/* Navbar Styles */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px 64px;
+  background: rgba(255, 255, 255, 0);
+  border-radius: 4px;
+  box-shadow: 0 0px 0px rgba(0, 0, 0, 0);
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  transition:
+    max-width 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    padding 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    top 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    background 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    border-radius 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    border 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    backdrop-filter 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: max-width, padding, top, background, border-radius;
+  z-index: 1000;
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+.navbar.is-scrolled {
+  top: 24px;
+  max-width: 500px;
+  padding: 12px 24px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 4px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.logo-container {
+  height: 32px;
+  width: 120px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.navbar-logo {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 28px;
+  width: auto;
+  object-fit: contain;
+  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.navbar-logo.logo-full {
+  opacity: 1;
+  transform: translateY(-50%) scale(1);
+}
+
+.navbar.is-scrolled .navbar-logo.logo-full {
+  opacity: 0;
+  transform: translateY(-50%) scale(0.9);
+  pointer-events: none;
+}
+
+.navbar-logo.logo-icon {
+  opacity: 0;
+  transform: translateY(-50%) scale(1.1);
+  pointer-events: none;
+}
+
+.navbar.is-scrolled .navbar-logo.logo-icon {
+  opacity: 1;
+  transform: translateY(-50%) scale(1);
+  pointer-events: auto;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: #1a1a1a;
+  font-weight: 500;
+  font-size: 15px;
+  transition: opacity 0.1s ease-in-out;
+}
+
+.navbar-links a:hover {
+  opacity: 0.6;
+}
+
+.btn-work {
+  background: #1a1a1a;
+  color: #fff !important;
+  padding: 10px 24px;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.btn-work:hover {
+  transform: scale(1.05);
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 5%;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 4%;
   }
-  a:hover {
-    color: #747bff;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 24px;
+    width: 100%;
   }
-  button {
-    background-color: #f9f9f9;
+
+  /* Responsive Navbar */
+  .navbar {
+    padding: 24px;
   }
+
+  .navbar.is-scrolled {
+    padding: 12px 20px;
+    top: 16px;
+  }
+
+  .navbar-links {
+    gap: 16px;
+  }
+
+  .navbar-links a {
+    font-size: 14px;
+  }
+
+  .btn-work {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  /* Shrink Logo on Mobile */
+  .logo-container {
+    width: 100px;
+  }
+
+  .navbar-logo {
+    height: 24px;
+  }
+}
+
+/* Scroll Placeholders */
+.section-placeholder {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: #f0f0f0;
 }

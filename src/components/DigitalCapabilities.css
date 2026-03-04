@@ -1,0 +1,213 @@
+.capabilities-section {
+    padding: 120px 0;
+    background-color: #ffffff;
+    width: 100%;
+    overflow: hidden;
+}
+
+.capabilities-wrapper {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 60px;
+    align-items: center;
+}
+
+/* Left Column Styles */
+.capabilities-left {
+    grid-column: span 5;
+    position: relative;
+    padding-right: 20px;
+}
+
+.capabilities-subtitle {
+    font-size: 1.5rem;
+    color: #1a1a1a;
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 400;
+}
+
+.capabilities-title {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    font-weight: 400;
+    color: #1a1a1a;
+    margin: 0 0 24px 0;
+    letter-spacing: -0.02em;
+}
+
+.capabilities-desc {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #4b5563;
+    margin: 0 0 40px 0;
+    max-width: 90%;
+}
+
+.btn-explore {
+    background-color: var(--secondary);
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 14px 28px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.btn-explore:hover {
+    transform: translateY(-2px);
+    background-color: var(--secondary-600);
+}
+
+.abstract-shape {
+    position: absolute;
+    bottom: -135px;
+    left: 180px;
+    width: 300px;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 1;
+    /* Restoring full opacity so it's clearly visible */
+}
+
+/* Ensure text and button content appears above the background */
+.capabilities-subtitle,
+.capabilities-title,
+.capabilities-desc,
+.btn-explore {
+    position: relative;
+    z-index: 2;
+}
+
+.abstract-shape img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Right Column Styles */
+.capabilities-right {
+    grid-column: span 7;
+}
+
+.capabilities-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.capability-card {
+    background: #f8fafc;
+    border: 1px solid #f1f5f9;
+    border-radius: 4px;
+    padding: 40px 32px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.capability-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+    background: #ffffff;
+}
+
+.capability-icon {
+    background-color: var(--primary-500);
+    color: #ffffff;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.capability-card-title {
+    font-size: 1.75rem;
+    line-height: 1.2;
+    font-weight: 400;
+    color: #1a1a1a;
+    margin: 0 0 32px 0;
+}
+
+.capability-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: auto;
+}
+
+.capability-tag {
+    background: #e2e8f0;
+    color: #475569;
+    font-size: 0.75rem;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .capabilities-wrapper {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+
+    .capabilities-left {
+        text-align: center;
+        padding-right: 0;
+    }
+
+    .capabilities-desc {
+        max-width: 100%;
+        margin: 0 auto 40px auto;
+    }
+
+    .capabilities-left,
+    .capabilities-right {
+        grid-column: span 1;
+    }
+
+    .abstract-shape {
+        bottom: auto;
+        top: -20px;
+        right: -50px;
+        left: auto;
+        width: 200px;
+        opacity: 0.3;
+    }
+}
+
+@media (max-width: 768px) {
+    .capabilities-section {
+        padding: 80px 0;
+    }
+
+    .capabilities-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .capabilities-title {
+        font-size: 2.5rem;
+    }
+
+    .capability-card {
+        padding: 24px;
+        border-radius: 4px;
+    }
+
+    .capability-card-title {
+        font-size: 1.5rem;
+        margin-bottom: 24px;
+    }
+}
