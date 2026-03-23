@@ -1,9 +1,29 @@
-import React from 'react';
-import { Globe, ChevronDown, MessageSquare, Facebook, Instagram, Github, Linkedin, Twitter } from 'lucide-react';
+import React, { useState, useRef, useEffect } from 'react';
+import { Globe, ChevronDown, Facebook, Instagram, Github, Linkedin, Twitter, MessageSquare } from 'lucide-react';
 import logoFull from '../assets/logo-full.png';
 import './Footer.css';
 
 const Footer: React.FC = () => {
+    const [isLangOpen, setIsLangOpen] = useState(false);
+    const [currentLang, setCurrentLang] = useState('English');
+    const dropdownRef = useRef<HTMLDivElement>(null);
+
+    // Close dropdown on click outside
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+                setIsLangOpen(false);
+            }
+        };
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => document.removeEventListener('mousedown', handleClickOutside);
+    }, []);
+
+    const languages = [
+        { name: 'English', code: 'en' },
+        { name: 'Japanese', code: 'jp' }
+    ];
+
     return (
         <footer className="footer-wrapper">
             <div className="footer-container">
@@ -17,11 +37,36 @@ const Footer: React.FC = () => {
                     </div>
 
                     <div className="footer-top-right">
-                        <button className="lang-selector">
-                            <Globe size={16} className="lang-icon" />
-                            <span>English</span>
-                            <ChevronDown size={16} className="lang-chevron" />
-                        </button>
+                        <div className="lang-selector-container" ref={dropdownRef}>
+                            <button 
+                                className={`lang-selector ${isLangOpen ? 'active' : ''}`}
+                                onClick={() => setIsLangOpen(!isLangOpen)}
+                            >
+                                <Globe size={16} className="lang-icon" />
+                                <span>{currentLang}</span>
+                                <ChevronDown size={16} className={`lang-chevron ${isLangOpen ? 'rotate' : ''}`} />
+                            </button>
+
+                            {isLangOpen && (
+                                <div className="lang-dropdown">
+                                    {languages.map((lang) => (
+                                        <button
+                                            key={lang.code}
+                                            className={`lang-option ${currentLang === lang.name ? 'selected' : ''}`}
+                                            onClick={() => {
+                                                setCurrentLang(lang.name);
+                                                setIsLangOpen(false);
+                                            }}
+                                        >
+                                            {lang.name}
+                                            {currentLang === lang.name && (
+                                                <span className="selected-dot" />
+                                            )}
+                                        </button>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
                     </div>
                 </div>
 

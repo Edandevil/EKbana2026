@@ -7,6 +7,7 @@ import CTASection from './components/CTASection'
 import NewsSection from './components/NewsSection'
 import Footer from './components/Footer'
 import SmoothScroll from './components/SmoothScroll'
+import ChatWidget from './components/ChatWidget'
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <CTASection />
         <Footer />
       </div>
+      <ChatWidget />
     </SmoothScroll>
   )
 }
