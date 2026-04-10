@@ -1,87 +1,63 @@
-import React from 'react';
-import { ArrowRight, Box, CreditCard, Activity } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import BlobCanvas from './BlobCanvas';
 import './Hero.css';
 
 const Hero: React.FC = () => {
-    return (
-        <section className="hero">
-            <div className="container hero-container">
-                {/* Left Column - Content */}
-                <div className="hero-content">
-                    <div className="hero-badge">
-                        <span className="badge-dot"></span>
-                        Trusted Digital Innovation Partner
-                    </div>
+  const [showScrollIndicator, setShowScrollIndicator] = useState(true);
 
-                    <h1 className="hero-title">
-                        Empowering Businesses with
-                        <span>Intelligent Digital Solutions</span>
-                    </h1>
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setShowScrollIndicator(false);
+      } else {
+        setShowScrollIndicator(true);
+      }
+    };
 
-                    <p className="hero-description">
-                        Based in Nepal, we shape intelligent products and enterprise solutions that empower companies to scale faster, smarter, and more efficiently in a digital-first world.
-                    </p>
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
-                    <a href="#contact" className="hero-cta">
-                        Schedule a Consultation
-                        <ArrowRight size={18} />
-                    </a>
-                </div>
+  return (
+    <div style={{ position: 'relative', width: '100%' }}>
+      {/* Fixed 3D Canvas spanning both folds */}
+      <BlobCanvas />
 
-                {/* Right Column - Visual Graphic */}
-                <div className="hero-visual">
-                    {/* Floating Card 1 - Top Left */}
-                    <div className="floating-card top-left">
-                        <div className="card-icon blue">
-                            <Box size={24} />
-                        </div>
-                        <div className="card-content">
-                            <span className="card-title">Enterprise Software</span>
-                            <span className="card-value">Built to Scale</span>
-                        </div>
-                    </div>
+      {/* First Fold / Hero Section */}
+      <div className="hero-wrapper">
+        <section className="hero-section text-center-hero">
+          <div className="hero-text">
+            <h1>
+              <strong>AI</strong>-Native Enterprise Systems<br />
+              Built for <strong>Real Business Outcomes</strong>
+            </h1>
+          </div>
 
-                    {/* Dashboard Mockup */}
-                    <div className="dashboard-mockup">
-                        <div className="mockup-header">
-                            <span className="mockup-dot red"></span>
-                            <span className="mockup-dot yellow"></span>
-                            <span className="mockup-dot green"></span>
-                        </div>
-                        <div className="mockup-chart">
-                            <div className="bar"></div>
-                            <div className="bar"></div>
-                            <div className="bar"></div>
-                            <div className="bar"></div>
-                            <div className="bar"></div>
-                        </div>
-                    </div>
-
-                    {/* Floating Card 2 - Bottom Right */}
-                    <div className="floating-card bottom-right">
-                        <div className="card-icon blue">
-                            <CreditCard size={24} />
-                        </div>
-                        <div className="card-content">
-                            <span className="card-title">Digital Transformation</span>
-                            <span className="card-value">Seamless Experience</span>
-                        </div>
-                    </div>
-
-                    {/* Floating Card 3 - Bottom Left */}
-                    <div className="floating-card bottom-left">
-                        <div className="card-icon green">
-                            <Activity size={24} />
-                        </div>
-                        <div className="card-content">
-                            <span className="card-title">AI & Innovation</span>
-                            <span className="card-value">Future Ready</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          <div className={`scroll-indicator ${showScrollIndicator ? '' : 'hidden'}`}>
+            <svg width="24" height="40" viewBox="0 0 24 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="0.5" y="0.5" width="23" height="35" rx="11.5" stroke="#111" strokeWidth="1" />
+              <path d="M12 9V15" stroke="#111" strokeWidth="2" strokeLinecap="round" />
+              <path d="M8 39L12 42L16 39" stroke="#111" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </div>
         </section>
-    );
+      </div>
+
+      {/* Second Fold */}
+      <section className="second-fold">
+        <div className="container fold2-content">
+          <h2 className="fold2-title">
+            <strong>95%</strong> of GenAI projects fail<br />
+            we are among the <strong>5%</strong> that deliver.
+          </h2>
+          <p className="fold2-desc">
+            Because we don't build AI demos. We build AI-powered enterprise systems <br />
+            that actually get adopted.
+          </p>
+        </div>
+      </section>
+    </div>
+  );
 };
 
 export default Hero;

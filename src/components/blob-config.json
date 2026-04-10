@@ -1,0 +1,65 @@
+{
+  "blob1": {
+    "scale": 1.6,
+    "position": {
+      "x": 2.6000000000000005,
+      "y": 0.7,
+      "z": 1.3000000000000005
+    },
+    "color": "#6bb1ff",
+    "metalness": 0.89,
+    "roughness": 0.22000000000000003,
+    "clearcoat": 0,
+    "clearcoatRoughness": 0.21,
+    "distort": 0.63,
+    "speed": 1.4
+  },
+  "blob2": {
+    "scale": 0.6,
+    "position": {
+      "x": 1.3000000000000003,
+      "y": -1.9000000000000004,
+      "z": 1.5
+    },
+    "color": "#63adff",
+    "metalness": 0.89,
+    "roughness": 0.3,
+    "clearcoat": 0.41,
+    "clearcoatRoughness": 0.1,
+    "distort": 0.7,
+    "speed": 0.8999999999999999
+  },
+  "env": {
+    "envMapIntensity": 1.4
+  },
+  "sp1": {
+    "color": "#009fff",
+    "intensity": 100,
+    "dist": 20,
+    "pos": {
+      "x": -4,
+      "y": 4,
+      "z": 5
+    }
+  },
+  "sp2": {
+    "color": "#000000",
+    "intensity": 150,
+    "dist": 20,
+    "pos": {
+      "x": 2,
+      "y": -5,
+      "z": 4
+    }
+  },
+  "sp3": {
+    "color": "#ffffff",
+    "intensity": 80,
+    "dist": 15,
+    "pos": {
+      "x": 5,
+      "y": 2,
+      "z": -2
+    }
+  }
+}
