@@ -1,0 +1,19 @@
+.preloader-container {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  background-color: #000000; /* Exact Aurora black */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Prevent interaction during load */
+  pointer-events: all;
+  overflow: hidden;
+}
+
+.preloader-logo {
+  /* Give it a crisp look */
+  transform-origin: center center;
+}

@@ -1,3 +1,5 @@
+import { useState } from 'react'
+import Preloader from './components/Preloader'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Services from './components/Services'
@@ -10,8 +12,12 @@ import SmoothScroll from './components/SmoothScroll'
 import ChatWidget from './components/ChatWidget'
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+
   return (
-    <SmoothScroll>
+    <>
+      {isLoading && <Preloader onComplete={() => setIsLoading(false)} />}
+      <SmoothScroll>
       <div className="app-container">
         <Navbar />
         <Hero />
@@ -24,6 +30,7 @@ function App() {
       </div>
       <ChatWidget />
     </SmoothScroll>
+    </>
   )
 }
 

@@ -119,6 +119,22 @@
   .hero-text h1 {
     font-size: 3rem;
   }
+
+  .fold2-title {
+    font-size: 2.5rem;
+  }
+  
+  .fold2-title strong {
+    font-size: 3.2rem;
+  }
+  
+  .fold2-desc {
+    font-size: 1.05rem;
+  }
+  
+  .second-fold {
+    padding: 2rem;
+  }
 }
 
 @media (max-width: 768px) {
@@ -133,12 +149,34 @@
   }
 
   .hero-text h1 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
   }
 
   .scroll-indicator {
     left: 50%;
     transform: translateX(-50%);
+  }
+
+  .fold2-title {
+    font-size: 1.8rem;
+  }
+  
+  .fold2-title strong {
+    font-size: 2.5rem;
+  }
+  
+  .fold2-desc {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    padding: 0 1rem;
+  }
+  
+  .second-fold {
+    padding: 1rem;
+  }
+
+  .fold2-content {
+    padding-top: 40vh;
   }
 }
 
